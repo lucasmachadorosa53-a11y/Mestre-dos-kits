@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MESTRE DOS KITS | Fornecedor Direto</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+        :root{--dourado:#f5b82e;--preto:#111;--vermelho:#d32f2f;--verde:#2e7d32;--cinza:#f5f5f5;}
+        body{background:#fff;color:#333;line-height:1.6;}
+        .container{max-width:900px;margin:0 auto;padding:0 20px;}
+        
+        @keyframes fadeInUp {
+            from { opacity:0; transform:translateY(30px); }
+            to { opacity:1; transform:translateY(0); }
+        }
+        @keyframes pulse {
+            0% { box-shadow:0 0 0 0 rgba(211, 47, 47, 0.4); }
+            70% { box-shadow:0 0 0 15px rgba(211, 47, 47, 0); }
+            100% { box-shadow:0 0 0 0 rgba(211, 47, 47, 0); }
+        }
+        @keyframes brilho {
+            0% { background-position:-200% center; }
+            100% { background-position:200% center; }
+        }
+        
+        header{background:linear-gradient(135deg,#111,#333);color:#fff;padding:40px 0;text-align:center;}
+        header h1{font-size:2.2rem;color:var(--dourado);margin-bottom:5px;
+            background:linear-gradient(90deg, var(--dourado), #fff, var(--dourado));
+            background-size:200% auto;
+            -webkit-background-clip:text;
+            background-clip:text;
+            -webkit-text-fill-color:transparent;
+            animation:brilho 3s linear infinite;
+        }
+        header p{font-size:1.1rem;opacity:0.9;animation:fadeInUp 0.8s ease 0.2s both;}
+        
+        .catalogo{background:var(--cinza);padding:50px 0;}
+        .catalogo h2{text-align:center;font-size:1.8rem;margin-bottom:40px;color:var(--preto);animation:fadeInUp 0.6s ease;}
+        .produto{background:#fff;border-radius:10px;padding:25px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.08);
+            transition:transform 0.3s ease, box-shadow 0.3s ease;opacity:0;animation:fadeInUp 0.6s ease forwards;
+            display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;
+        }
+        .produto:nth-child(2) { animation-delay:0.1s; }
+        .produto:nth-child(3) { animation-delay:0.2s; }
+        .produto:nth-child(4) { animation-delay:0.3s; }
+        .produto:nth-child(5) { animation-delay:0.4s; }
+        .produto:nth-child(6) { animation-delay:0.5s; }
+        .produto:nth-child(7) { animation-delay:0.6s; }
+        .produto:nth-child(8) { animation-delay:0.7s; }
+        .produto:nth-child(9) { animation-delay:0.8s; }
+        .produto:nth-child(10) { animation-delay:0.9s; }
+        .produto:nth-child(11) { animation-delay:1s; }
+        .produto:hover{transform:translateY(-5px);box-shadow:0 8px 25px rgba(0,0,0,0.12);}
+        .produto-img{width:140px;height:140px;object-fit:cover;border-radius:8px;background:var(--cinza);flex-shrink:0;}
+        .produto-conteudo{flex:1;min-width:250px;}
+        .produto h3{font-size:1.2rem;margin-bottom:12px;color:var(--preto);}
+        .produto p{margin:6px 0;}
+        .destaque{color:var(--verde);font-weight:bold;}
+        .preco{font-size:1.1rem;font-weight:bold;color:var(--vermelho);}
+        
+        .resumo{background:#111;color:#fff;padding:40px;border-radius:10px;margin:40px 0;animation:fadeInUp 0.8s ease 0.5s both;}
+        .resumo h3{text-align:center;font-size:1.5rem;margin-bottom:25px;color:var(--dourado);}
+        .resumo table{width:100%;max-width:500px;margin:0 auto;text-align:left;}
+        .resumo td{padding:8px 0;border-bottom:1px solid #333;}
+        .resumo .valor{font-weight:bold;color:var(--dourado);}
+        
+        .sobre{padding:40px 0;animation:fadeInUp 0.8s ease 0.6s both;}
+        .sobre h2{color:var(--preto);font-size:1.6rem;margin-bottom:15px;border-left:4px solid var(--dourado);padding-left:10px;}
+        .sobre p{font-size:1.05rem;margin-bottom:10px;}
+        
+        .aviso-pagamento{background:#fff3cd;border-left:4px solid #ffc107;padding:18px;margin:20px 0;border-radius:0 8px 8px 0;transition:transform 0.3s ease;}
+        .aviso-pagamento:hover{transform:scale(1.02);}
+        .aviso-pagamento strong{color:#856404;}
+        
+        .como-funciona{padding:0 0 40px;animation:fadeInUp 0.8s ease 0.7s both;}
+        .como-funciona h2{text-align:center;margin-bottom:30px;}
+        .passo{display:flex;align-items:center;margin-bottom:15px;transition:transform 0.3s ease;}
+        .passo:hover{transform:translateX(10px);}
+        .num{background:var(--dourado);color:#000;width:35px;height:35px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;margin-right:15px;flex-shrink:0;}
+        
+        .chamada-final{background:var(--dourado);padding:35px;text-align:center;border-radius:10px;margin:40px 0;animation:fadeInUp 0.8s ease 0.8s both;}
+        .btn{display:inline-block;background:var(--vermelho);color:#fff;padding:15px 35px;font-size:1.2rem;font-weight:bold;border-radius:8px;text-decoration:none;
+            transition:all 0.3s ease;animation:pulse 2s infinite;
+        }
+        .btn:hover{transform:scale(1.08);background:#b71c1c;}
+        
+        footer{background:#111;color:#fff;text-align:center;padding:25px;margin-top:30px;animation:fadeInUp 0.8s ease 1s both;}
+        .rapido{color:var(--verde);font-weight:bold;}
+        .sem-foto{display:flex;align-items:center;justify-content:center;font-size:2rem;color:#999;}
+        
+        @media(max-width:600px){
+            .produto{flex-direction:center;text-align:center;}
+            .produto-img{width:100%;max-width:200px;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>🔧 MESTRE DOS KITS</h1>
+        <p>FORNECEDOR DIRETO • Ferramentas de Qualidade • Entrega <span class="rapido">Rápida</span></p>
+    </div>
+</header>
+
+<section class="catalogo">
+    <div class="container">
+        <h2>📦 Catálogo Completo — Preços de Fornecedor</h2>
+        <p style="text-align:center;margin-bottom:30px;">Valores abaixo = <strong>lote com 5 unidades</strong> • Pagamento antecipado</p>
+
+        <div class="produto">
+            <img src="imagens/produto1.jpg" alt="Maleta Titanium 12 Peças" class="produto-img" onerror="this.innerHTML='<div class=\'sem-foto\'>🔧</div>'">
+            <div class="produto-conteudo">
+                <h3>1️⃣ 🔧 Maleta Titanium — 12 Peças</h3>
+                <p>💵 <span class="preco">Valor: R$ 175,00</span> (lote c/ 5)</p>
+                <p>🏷️ Preço recomendado ao consumidor: R$ 60,00/un</p>
+                <p>💰 <span class="destaque">Seu lucro: R$ 125,00 por lote</span></p>
+                <p>📈 Margem: 71,4% | ⭐ Oficinas, residências e presentes</p>
+            </div>
+        </div>
+
+        <div class="produto">
+            <img src="imagens/produto2.jpg" alt="Kit Soquetes e Catraca" class="produto-img" onerror="this.innerHTML='<div class=\'sem-foto\'>🛠️</div>'">
+            <div class="produto-conteudo">
+                <h3>2️⃣ 🛠️ Kit Soquetes + Catraca — 46 Peças</h3>
+                <p>💵 <span class="preco">Valor: R$ 275,00</span> (lote c/ 5)</p>
+                <p>🏷️ Preço recomendado ao consumidor: R$ 95,00/un</p>
+                <p>💰 <span class="destaque">Seu lucro: R$ 200,00 por lote</span></p>
+                <p>📈 Margem: 72,7% | ⭐ Essencial para oficinas</p>
+            </div>
+        </div>
+
+        <div class="produto">
+            <img src="imagens/produto3.jpg" alt="Jogo de Alicates" class="produto-img" onerror="this.innerHTML='<div class=\'sem-foto\'>⚡</div>'">
+            <div class="produto-conteudo">
+                <h3>3️⃣ ⚡ Jogo de Alicates — 4 Peças</h3>
+                <p>💵 <span class="preco">Valor: R$ 214,50</span> (lote c/ 5)</p>
+                <p>🏷️ Preço recomendado ao consumidor: R$ 75,00/un</p>
+                <p>💰 <span class="destaque">Seu lucro: R$ 160,50 por lote</span></p>
+                <p>📈 Margem: 74,8% | ⭐ 4,9⭐ — Corte, bico fino, diagonal e combinado</p>
+            </div>
+        </div>
+
+        <div class="produto">
+            <img src="imagens/produto4.jpg" alt="Chaves Catraca Cabeça Flexível" class="produto-img" onerror="this.innerHTML='<div class=\'sem-foto\'>🔩</div>'">
+            <div class="produto-conteudo">
+                <h3>4️⃣ 🔩 Chaves Catraca Cabeça Flexível</h3>
+                <p>💵 <span class="preco">Valor: R$ 199,50</span> (lote c/ 5)</p>
+                <p>🏷️ Preço recomendado ao consumidor: R$ 65,00/un</p>
+                <p>💰 <span class="destaque">Seu lucro: R$ 125,50 por lote</span></p>
+                <p>📈 Margem: 62,9% | ⭐ 1.000+ vendidos — profissional</p>
+            </div>
+        </div>
+
+        <div class="produto">
+            <img src="imagens/produto5.jpg" alt="Trena 5m com Trava Forte" class="produto-img" onerror="this.innerHTML='<div class=\'sem-foto\'>📏</div>'">
+            <div class="produto-conteudo">
+                <h3>5️⃣ 📏 Trena 5m c/ Trava Forte</h3>
+                <p>💵 <span class="preco">Valor: R$ 125,00</span> (lote c/ 5)</p>
+                <p>🏷️ Preço recomendado ao consumidor: R$ 35,00/un</p>
+                <p>💰 <span class="destaque">Seu lucro: R$ 50,00 por lote</span></p>
+                <p>📈 Margem: 40,0% | ⭐ Giro mais rápido</p>
+            </div>
+        </div>
+
+        <div class="produto">
+            <img src="imagens/produto6.jpg" alt="Graxa Lubrificante" class="produto-img" onerror="this.innerHTML='<div class=\'sem-foto\'>🧴</div>'">
+            <div class="produto-conteudo">
+                <h3>6️⃣ 🧴 Graxa Lubrificante Multiuso — 50g</h3>
+                <p>💵 <span class="preco">Valor: R$ 124,50</span> (lote c/ 5)</p>
+                <p>🏷️ Preço recomendado ao consumidor: R$ 35,00/un</p>
+                <p>💰 <span class="destaque">Seu lucro: R$ 50,50 por lote</span></p>
+                <p>📈 Margem: 40,6% | ⭐ Reposição constante</p>
+            </div>
+        </div>
+
+        <div class="produto">
+            <img src="imagens/produto7.jpg" alt="Lanterna Magnética" class="produto-img" onerror="this.innerHTML='<div class=\'sem-foto\'>🔦</div>'">
+            <div class="produto-conteudo">
+                <h3>7️⃣ 🔦 Lanterna Magnética Recarregável</h3>
+                <p>💵 <span class="preco">Valor: R$ 174,50</span> (lote c/ 5)</p>
+                <p>🏷️ Preço recomendado ao consumidor: R$ 55,00/un</p>
+                <p>💰 <span class="destaque">Seu lucro: R$ 100,50 por lote</span></p>
+                <p>📈 Margem: 57,6% | ⭐ LED + COB — alta procura</p>
+            </div>
+        </div>
+
+        <div class="produto">
+            <img src="imagens/produto8.jpg" alt="Mini Parafusadeira" class="produto-img" onerror="this.innerHTML='<div class=\'sem-foto\'>🔦</div>'">
+            <div class="produto-conteudo">
+                <h3>8️⃣ 🔦 Mini Parafusadeira 3.6V Recarregável</h3>
+                <p>💵 <span class="preco">Valor: R$ 299,50</span> (lote c/ 5)</p>
+                <p>🏷️ Preço recomendado ao consumidor: R$ 99,90/un</p>
+                <p>💰 <span class="destaque">Seu lucro: R$ 200,00 por lote</span></p>
+                <p>📈 Margem: 66,8% | ⭐ Maior lucro por lote</p>
+            </div>
+        </div>
+
+        <div class="produto">
+            <img src="imagens/produto9.jpg" alt="Kit EPI" class="produto-img" onerror="this.innerHTML='<div class=\'sem-foto\'>🧤</div>'">
+            <div class="produto-conteudo">
+                <h3>9️⃣ 🧤 Kit EPI — Luva + Óculos + Máscara</h3>
+                <p>💵 <span class="preco">Valor: R$ 140,00</span> (lote c/ 5)</p>
+                <p>🏷️ Preço recomendado ao consumidor: R$ 45,00/un</p>
+                <p>💰 <span class="destaque">Seu lucro: R$ 85,00 por lote</span></p>
+                <p>📈 Margem: 60,7% | ⭐ Compra frequente</p>
+            </div>
+        </div>
+
+        <div class="produto">
+            <img src="imagens/produto10.jpg" alt="Jogo de Chaves Combinadas" class="produto-img" onerror="this.innerHTML='<div class=\'sem-foto\'>🔩</div>'">
+            <div class="produto-conteudo">
+                <h3>🔟 🔩 Jogo de Chaves Combinadas 6–22mm</h3>
+                <p>💵 <span class="preco">Valor: R$ 214,50</span> (lote c/ 5)</p>
+                <p>🏷️ Preço recomendado ao consumidor: R$ 75,00/un</p>
+                <p>💰 <span class="destaque">Seu lucro: R$ 160,50 por lote</span></p>
+                <p>📈 Margem: 74,8% | ⭐ Essencial</p>
+            </div>
+        </div>
+
+        <div class="resumo">
+            <h3>📊 Resumo — Comprar Tudo (1 lote de cada)</h3>
+            <table>
+                <tr><td>💸 Valor total</td><td class="valor">R$ 1.942,50</td></tr>
+                <tr><td>💵 Faturamento na revenda</td><td class="valor">R$ 3.424,50</td></tr>
+                <tr><td>💰 SEU LUCRO TOTAL</td><td class="valor" style="font-size:1.2rem;">R$ 1.482,00 🔥</td></tr>
+                <tr><td>📈 Margem média</td><td class="valor">61,7%</td></tr>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="sobre container">
+    <h2>📌 Quem Somos</h2>
+    <p>Somos o <strong>MESTRE DOS KITS</strong> — Fornecedor Direto de ferramentas e conjuntos selecionados para revenda.</p>
+    <p>Trabalhamos sem intermediários. É por isso que conseguimos oferecer <strong>preço justo e margens reais</strong> pra você que quer revender e crescer. Nós somos a fonte — compramos em volume e entregamos direto pra você com <strong>agilidade máxima</strong>.</p>
+    
+    <div class="aviso-pagamento">
+        <strong>✅ Como funciona:</strong><br>
+        O pagamento é antecipado para garantirmos a reserva e o envio <strong>o mais rápido possível</strong>. Assim mantemos os preços baixos e a entrega sem atrasos.<br><br>
+        <em>Você paga → nós enviamos → produto chega rápido até você → você revende e lucra!</em>
+    </div>
+</section>
+
+<section class="como-funciona container">
+    <h2>🤝 Passo a Passo</h2>
+    <div class="passo"><span class="num">1</span><div>Escolha os lotes e fale conosco no WhatsApp</div></div>
+    <div class="passo"><span class="num">2</span><div>Faça o pagamento → confirmamos reserva na hora</div></div>
+    <div class="passo"><span class="num">3</span><div>Preparamos e despachamos <strong>imediatamente</strong> ⚡</div></div>
+    <div class="passo"><span class="num">4</span><div>🚚 <strong>Entrega o mais rápido possível</strong> — sem prazo fixo, sem esperar demais</div></div>
+    <div class="passo"><span class="num">5</span><div>Produto chega → você revende → embolsa o lucro! ✅</div></div>
+</section>
+
+<section class="container">
+    <div class="chamada-final">
+        <h3 style="color:#000;margin-bottom:15px;">Quero Garantir Meu Pedido Agora ⚡</h3>
+        <a href="https://wa.me/5511912892149" class="btn" target="_blank">💬 FALAR NO WHATSAPP</a>
+        <p style="margin-top:12px;color:#000;font-weight:500;">Atendimento imediato — digite: "Quero ser revendedor"</p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p><strong>MESTRE DOS KITS</strong> — Fornecedor Direto</p>
+        <p style="margin-top:8px;font-size:0.9rem;opacity:0.7;">Transparência • Qualidade • Entrega Rápida ⚡</p>
+    </div>
+</footer>
+
+</body>
+</html>
